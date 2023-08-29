@@ -39,6 +39,7 @@ config.default_layout = types.auth_strategy.split
 config.on_attach = function(_, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
   vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
 end
 
 config.testing = (vim.env.SG_NVIM_TESTING or "") == "true"
