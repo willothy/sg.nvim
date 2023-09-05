@@ -34,7 +34,7 @@ local config = {}
 config.download_binaries = true
 config.node_executable = "node"
 config.cody_agent = vim.api.nvim_get_runtime_file("dist/cody-agent.js", false)[1]
-config.default_layout = types.auth_strategy.split
+config.default_layout = types.layout_strategy.split
 
 config.on_attach = function(_, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
