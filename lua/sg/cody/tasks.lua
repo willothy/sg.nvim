@@ -1,7 +1,8 @@
-local CodyHover = require "sg.components.layout.hover"
+local Layout = require "sg.components.layout"
 local Speaker = require "sg.cody.speaker"
 local Message = require "sg.cody.message"
 local keymaps = require "sg.keymaps"
+local config  = require "sg.config"
 
 ---@class CodyTask
 ---@field bufnr number
@@ -30,7 +31,7 @@ CodyTask.init = function(opts)
   local start_mark_id = vim.api.nvim_buf_set_extmark(opts.bufnr, marks_namespace, opts.start_line, 0, {})
   local end_mark_id = vim.api.nvim_buf_set_extmark(opts.bufnr, marks_namespace, opts.end_line, 0, {})
 
-  local layout = CodyHover.init {
+  local layout = Layout.get(config.default_layout).init {
     bufnr = opts.bufnr,
   }
   layout.state:append(Message.init(Speaker.user, vim.split(opts.task, "\n"), {}))
